@@ -1,3 +1,4 @@
+import { Product } from './products.model';
 import { ProductsStore } from './products.store';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
@@ -11,10 +12,18 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 })
 export class ProductsComponent implements OnInit {
 
-  products$ = this.productsStore.products$;
   constructor(private readonly productsStore: ProductsStore) { }
 
+  products$ = this.productsStore.products$;
+  addedProductIds$ = this.productsStore.addedProducts$;
+
   ngOnInit(): void {
+  }
+
+  addProduct(productId: string) {
+    this.productsStore.patchState((state) => ({
+      addedProductIds: [...state.addedProductIds, productId]
+    }));
   }
 
 }
