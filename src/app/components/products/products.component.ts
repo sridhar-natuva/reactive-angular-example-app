@@ -1,5 +1,5 @@
 import { Product } from './products.model';
-import { ProductsStore } from './products.store';
+import { ProductsStore } from '../../store/products.store';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -7,15 +7,14 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ProductsStore],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
 
   constructor(private readonly productsStore: ProductsStore) { }
 
   products$ = this.productsStore.products$;
-  addedProductIds$ = this.productsStore.addedProducts$;
+  addedProductIds$ = this.productsStore.addedProductIds$;
 
   ngOnInit(): void {
   }

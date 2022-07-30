@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsStore } from './../../store/products.store';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  addedProductIds$ = this.productsStore.addedProductIds$;
+  constructor(private readonly productsStore: ProductsStore) { }
 
   ngOnInit(): void {
   }

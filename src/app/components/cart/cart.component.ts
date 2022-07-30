@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import coupons from "./coupons.json";
+import { ProductsStore } from './../../store/products.store';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,9 @@ export class CartComponent implements OnInit {
   coupon = '';
   total = 590;
   isApplied = false;
-  constructor() { }
+
+  itemsInCart$ = this.productsStore.viewAddedProducts$;
+  constructor(private readonly productsStore: ProductsStore) { }
 
   ngOnInit(): void {
   }
