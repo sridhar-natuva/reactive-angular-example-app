@@ -10,14 +10,16 @@ import { CartComponent } from './components/cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/shared/material.angular';
-
+import { StreamDataComponent } from './components/stream-data/stream-data.component';
+import { PubNubAngular } from 'pubnub-angular2';
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     HeaderComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    StreamDataComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { MaterialModule } from './modules/shared/material.angular';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [PubNubAngular],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

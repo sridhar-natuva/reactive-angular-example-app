@@ -1,6 +1,5 @@
-import { Product } from './products.model';
-import { ProductsStore } from '../../store/products.store';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ProductsStore } from '../../store/products.store';
 
 @Component({
   selector: 'app-products',
